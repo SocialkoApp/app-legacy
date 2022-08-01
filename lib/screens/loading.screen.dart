@@ -1,4 +1,4 @@
-import 'package:app/api/home/home.screen.dart';
+import 'package:app/screens/home.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app/api/api.dart';
 import 'login.screen.dart';

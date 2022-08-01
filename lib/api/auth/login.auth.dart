@@ -1,14 +1,9 @@
 import 'package:app/api/api.client.dart';
+import 'package:app/api/auth/models/login.dto.dart';
 
 class Login {
-  static Future<Map<String, dynamic>> login(
-      String username, String password) async {
-    final body = {
-      'username': username,
-      'password': password,
-    };
-
-    final response = await ApiClient.post('/auth/login', body);
+  Future<Map<String, dynamic>> login(LoginDto loginDto) async {
+    final response = await ApiClient.post('/auth/login', loginDto.toJson());
 
     return response;
   }
