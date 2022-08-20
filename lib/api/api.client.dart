@@ -8,7 +8,7 @@ import './api.dart';
 
 // Class that holds all the network requests
 class ApiClient {
-  static const String apiUrl = 'http://localhost:3000';
+  static const String apiUrl = 'http://localhost:4000';
 
   // GET function
   // Retrieves JSON data from the API to the app
