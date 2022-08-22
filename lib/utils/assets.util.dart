@@ -22,6 +22,7 @@ class AppColors {
   Color backgroundHighlight = const Color(0xFF252525);
 
   Color white = const Color(0xFFFFFFFF);
+  Color surfaceHighlight = const Color(0xFF9B9B9B);
 }
 
 class AppImages {

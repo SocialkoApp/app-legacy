@@ -1,5 +1,6 @@
 import 'package:app/screens/home.screen.dart';
 import 'package:app/screens/profile.screen.dart';
+import 'package:app/utils/assets.util.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
@@ -25,10 +26,12 @@ class _MainScreenState extends State<MainScreen> {
     SalomonBottomBarItem(
       icon: const Icon(IconlyLight.home),
       title: const Text('Home'),
+      selectedColor: AppAssets.colors.secondary,
     ),
     SalomonBottomBarItem(
       icon: const Icon(IconlyLight.profile),
       title: const Text('Profile'),
+      selectedColor: AppAssets.colors.secondary,
     ),
   ];
 
@@ -36,10 +39,13 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages.elementAt(_currentIndex),
-      bottomNavigationBar: SalomonBottomBar(
-        currentIndex: _currentIndex,
-        onTap: (i) => setState(() => _currentIndex = i),
-        items: _items,
+      bottomNavigationBar: Container(
+        color: AppAssets.colors.background,
+        child: SalomonBottomBar(
+          currentIndex: _currentIndex,
+          onTap: (i) => setState(() => _currentIndex = i),
+          items: _items,
+        ),
       ),
     );
   }

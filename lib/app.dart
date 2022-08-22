@@ -1,4 +1,3 @@
-import 'package:app/screens/home.screen.dart';
 import 'package:app/screens/email_confirmation.screen.dart';
 import 'package:app/screens/loading.screen.dart';
 import 'package:app/screens/login.screen.dart';
