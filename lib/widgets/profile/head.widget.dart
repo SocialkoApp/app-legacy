@@ -2,60 +2,52 @@ import 'package:app/utils/assets.util.dart';
 import 'package:flutter/material.dart';
 
 class ProfileHead extends StatelessWidget {
-  const ProfileHead({Key? key}) : super(key: key);
+  const ProfileHead({
+    Key? key,
+    required this.profilePicture,
+    required this.name,
+    required this.username,
+    required this.bio,
+    required this.followers,
+    required this.following,
+  }) : super(key: key);
 
-  final String _banner =
-      'https://pbs.twimg.com/profile_banners/1108654697131462656/1632560207/1500x500';
-  final String _profilePicture =
-      'https://s3.eu-central-1.wasabisys.com/aiken/profile_aiken.jpeg';
+  final String profilePicture;
 
-  final String _name = 'Aiken Tine Ahac';
-  final String _username = 'aikenahac';
+  final String name;
+  final String username;
 
-  final String _bio =
-      '‘03 | Vegova | Full-Stack Developer\nFather to @juje_macek\nG ❤';
+  final String bio;
 
-  final String _followers = '465';
-  final String _following = '264';
+  final String followers;
+  final String following;
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Banner and profile picture
-        SizedBox(
-          height: 190.0,
-          child: Stack(
-            children: [
-              // Banner
-              Image.network(
-                _banner,
-                width: width,
-                height: 150,
-              ),
+        const SizedBox(height: 10.0),
 
-              // Profile picture
-              Padding(
-                padding: const EdgeInsets.only(left: 24.0),
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: CircleAvatar(
-                    radius: 50.0,
-                    backgroundColor: AppAssets.colors.background,
-                    child: CircleAvatar(
-                      radius: 45.0,
-                      foregroundImage: NetworkImage(
-                        _profilePicture,
-                      ),
-                    ),
-                  ),
+        // Profile picture
+        Padding(
+          padding: const EdgeInsets.only(left: 24.0),
+          child: Align(
+            alignment: Alignment.bottomLeft,
+            child: CircleAvatar(
+              radius: 50.0,
+              backgroundColor: AppAssets.colors.background,
+              child: CircleAvatar(
+                radius: 45.0,
+                foregroundImage: NetworkImage(
+                  profilePicture,
                 ),
               ),
-            ],
+            ),
           ),
         ),
 
@@ -65,7 +57,7 @@ class ProfileHead extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 16.0),
           child: Text(
-            _name,
+            name,
             style: const TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.bold,
@@ -77,7 +69,7 @@ class ProfileHead extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 16.0),
           child: Text(
-            '@$_username',
+            '@$username',
             style: TextStyle(
               fontSize: 14.0,
               color: AppAssets.colors.surfaceHighlight,
@@ -91,7 +83,7 @@ class ProfileHead extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 16.0),
           child: Text(
-            _bio,
+            bio,
             style: const TextStyle(
               fontSize: 14.0,
             ),
@@ -108,7 +100,7 @@ class ProfileHead extends StatelessWidget {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: _followers,
+                      text: followers,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -124,7 +116,7 @@ class ProfileHead extends StatelessWidget {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: _following,
+                      text: following,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
