@@ -35,6 +35,31 @@ class ApiClient {
     return responseBody;
   }
 
+  // GET function
+  // Retrieves JSON data from the API to the app
+  static Future<dynamic> getMany(String endpoint) async {
+    final url = Uri.parse(apiUrl + endpoint);
+
+    final headers = {
+      'Content-Type': 'application/json; charset=UTF-8',
+    };
+
+    if (await API.auth.isLoggedIn()) {
+      headers.addAll({
+        'Authorization': 'Bearer ${await API.auth.getToken()}',
+      });
+    }
+
+    final response = await http.get(
+      url,
+      headers: headers,
+    );
+
+    final List<dynamic> responseBody = jsonDecode(response.body);
+
+    return responseBody;
+  }
+
   // POST function
   // Sends JSON data to the app from the API
   // Used for adding new items
