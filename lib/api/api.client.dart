@@ -21,7 +21,7 @@ class ApiClient {
 
     if (await API.auth.isLoggedIn()) {
       headers.addAll({
-        'Authorization': await API.auth.getToken(),
+        'Authorization': 'Bearer ${await API.auth.getToken()}',
       });
     }
 

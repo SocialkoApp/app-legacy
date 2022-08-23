@@ -9,7 +9,6 @@ import 'package:app/screens/register.screen.dart';
 import 'package:app/utils/assets.util.dart';
 import 'package:app/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

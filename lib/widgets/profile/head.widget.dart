@@ -1,18 +1,19 @@
+import 'package:app/api/profile/models/profilePicture.model.dart';
 import 'package:app/utils/assets.util.dart';
 import 'package:flutter/material.dart';
 
 class ProfileHead extends StatelessWidget {
   const ProfileHead({
     Key? key,
-    required this.profilePicture,
     required this.name,
     required this.username,
-    required this.bio,
     required this.followers,
     required this.following,
+    required this.profilePicture,
+    required this.bio,
   }) : super(key: key);
 
-  final String profilePicture;
+  final ProfilePicture profilePicture;
 
   final String name;
   final String username;
@@ -24,9 +25,6 @@ class ProfileHead extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +42,7 @@ class ProfileHead extends StatelessWidget {
               child: CircleAvatar(
                 radius: 45.0,
                 foregroundImage: NetworkImage(
-                  profilePicture,
+                  profilePicture.url,
                 ),
               ),
             ),
@@ -90,7 +88,7 @@ class ProfileHead extends StatelessWidget {
           ),
         ),
 
-        // const SizedBox(height: 5.0),
+        const SizedBox(height: 5.0),
 
         Padding(
           padding: const EdgeInsets.only(left: 16.0),
