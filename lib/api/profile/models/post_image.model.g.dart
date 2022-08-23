@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'postImage.model.dart';
+part of 'post_image.model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

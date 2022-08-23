@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'postAuthor.model.dart';
-import 'postImage.model.dart';
+import 'post_author.model.dart';
+import 'post_image.model.dart';
 
 part 'post.model.g.dart';
 

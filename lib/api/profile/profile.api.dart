@@ -1,7 +1,6 @@
 import 'package:app/api/api.client.dart';
+import 'package:app/api/profile/models/post.model.dart';
 import 'package:app/api/profile/models/profile.model.dart';
-
-import 'models/post.model.dart';
 
 class ProfileAPI {
   Future<Profile> me() async {

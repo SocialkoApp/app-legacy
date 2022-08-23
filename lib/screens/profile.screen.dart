@@ -1,7 +1,7 @@
 import 'package:app/api/api.dart';
 import 'package:app/api/profile/models/post.model.dart';
 import 'package:app/api/profile/models/profile.model.dart';
-import 'package:app/api/profile/models/profilePicture.model.dart';
+import 'package:app/api/profile/models/profile_picture.model.dart';
 import 'package:app/utils/assets.util.dart';
 import 'package:app/widgets/profile/head.widget.dart';
 import 'package:app/widgets/profile/post.widget.dart';
