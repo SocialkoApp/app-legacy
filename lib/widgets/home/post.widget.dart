@@ -36,8 +36,10 @@ class HomePostWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    foregroundImage:
-                        NetworkImage(post.author.profilePicture?.url ?? ''),
+                    foregroundImage: NetworkImage(
+                      post.author.profilePicture?.url ??
+                          'https://s3.eu-central-1.wasabisys.com/socialko/black_image.jpg',
+                    ),
                   ),
                   const SizedBox(width: 10.0),
                   Text(post.author.user.username),

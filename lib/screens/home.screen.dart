@@ -38,6 +38,11 @@ class _HomeScreenState extends State<HomeScreen> {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text('socialko'),
+        centerTitle: true,
+      ),
       backgroundColor: AppAssets.colors.background,
       body: _loading
           ? const Center(
@@ -60,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 )
               : const Center(
-                  child: Text('There no posts'),
+                  child: Text('There are no posts'),
                 ),
     );
   }
