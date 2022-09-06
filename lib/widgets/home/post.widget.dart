@@ -1,9 +1,10 @@
+import 'package:app/api/api.dart';
 import 'package:app/api/profile/models/post.model.dart';
 import 'package:app/utils/assets.util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
-class HomePostWidget extends StatelessWidget {
+class HomePostWidget extends StatefulWidget {
   const HomePostWidget({
     Key? key,
     required this.width,
@@ -15,9 +16,48 @@ class HomePostWidget extends StatelessWidget {
   final Post post;
 
   @override
+  State<HomePostWidget> createState() => _HomePostWidgetState();
+}
+
+class _HomePostWidgetState extends State<HomePostWidget> {
+  late int upvotes;
+  late int downvotes;
+
+  @override
+  void initState() {
+    super.initState();
+    initVotes();
+  }
+
+  void initVotes() {
+    setState(() {
+      upvotes = widget.post.upvotes.length;
+      downvotes = widget.post.downvotes.length;
+    });
+  }
+
+  void upvotePost() async {
+    final upvoted = await API.post.upvotePost(widget.post.id);
+
+    setState(() {
+      upvotes = upvoted.upvotes.length;
+      downvotes = upvoted.downvotes.length;
+    });
+  }
+
+  void downvotePost() async {
+    final downvoted = await API.post.downvotePost(widget.post.id);
+
+    setState(() {
+      upvotes = downvoted.upvotes.length;
+      downvotes = downvoted.downvotes.length;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width,
+      width: widget.width,
       child: Column(
         children: [
           Container(
@@ -37,17 +77,17 @@ class HomePostWidget extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     foregroundImage: NetworkImage(
-                      post.author.profilePicture?.url ??
+                      widget.post.author.profilePicture?.url ??
                           'https://s3.eu-central-1.wasabisys.com/socialko/black_image.jpg',
                     ),
                   ),
                   const SizedBox(width: 10.0),
-                  Text(post.author.user.username),
+                  Text(widget.post.author.user.username),
                 ],
               ),
             ),
           ),
-          Image.network(post.image.url),
+          Image.network(widget.post.image.url),
           Container(
             height: 50.0,
             decoration: BoxDecoration(
@@ -70,19 +110,19 @@ class HomePostWidget extends StatelessWidget {
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () => {},
+                        onPressed: () => downvotePost(),
                         icon: const Icon(IconlyLight.arrowDown2),
                       ),
-                      Text('${post.downvotes.length}'),
+                      Text('$downvotes'),
                     ],
                   ),
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () => {},
+                        onPressed: () => upvotePost(),
                         icon: const Icon(IconlyLight.arrowUp2),
                       ),
-                      Text('${post.upvotes.length}'),
+                      Text('$upvotes'),
                     ],
                   ),
                 ],

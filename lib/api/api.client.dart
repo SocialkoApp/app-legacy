@@ -73,7 +73,7 @@ class ApiClient {
 
     if (await API.auth.isLoggedIn()) {
       headers.addAll({
-        'Authorization': await API.auth.getToken(),
+        'Authorization': 'Bearer ${await API.auth.getToken()}',
       });
     }
 
@@ -100,8 +100,8 @@ class ApiClient {
   // PUT function
   // Sends JSON data to the app from the API
   // Used for updating existing items
-  static Future<Map<String, dynamic>> put(
-      String endpoint, Map<String, dynamic> body) async {
+  static Future<Map<String, dynamic>> put(String endpoint,
+      [Map<String, dynamic>? body]) async {
     final url = Uri.parse(apiUrl + endpoint);
 
     final headers = {
@@ -110,14 +110,14 @@ class ApiClient {
 
     if (await API.auth.isLoggedIn()) {
       headers.addAll({
-        'Authorization': await API.auth.getToken(),
+        'Authorization': 'Bearer ${await API.auth.getToken()}',
       });
     }
 
     final response = await http.put(
       url,
       headers: headers,
-      body: jsonEncode(body),
+      body: body != null ? jsonEncode(body) : null,
     );
 
     final Map<String, dynamic> responseBody = jsonDecode(response.body);
@@ -145,7 +145,7 @@ class ApiClient {
 
     if (await API.auth.isLoggedIn()) {
       headers.addAll({
-        'Authorization': await API.auth.getToken(),
+        'Authorization': 'Bearer ${await API.auth.getToken()}',
       });
     }
 
