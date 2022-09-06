@@ -73,7 +73,7 @@ class HomePostWidget extends StatelessWidget {
                         onPressed: () => {},
                         icon: const Icon(IconlyLight.arrowDown2),
                       ),
-                      Text('${post.downvotes}'),
+                      Text('${post.downvotes.length}'),
                     ],
                   ),
                   Row(
@@ -82,7 +82,7 @@ class HomePostWidget extends StatelessWidget {
                         onPressed: () => {},
                         icon: const Icon(IconlyLight.arrowUp2),
                       ),
-                      Text('${post.upvotes}'),
+                      Text('${post.upvotes.length}'),
                     ],
                   ),
                 ],

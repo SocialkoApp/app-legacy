@@ -1,7 +1,9 @@
+import 'package:app/api/profile/models/profile.model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'post_author.model.dart';
 import 'post_image.model.dart';
+import 'vote.model.dart';
 
 part 'post.model.g.dart';
 
@@ -19,8 +21,8 @@ class Post {
 
   final int id;
 
-  final int upvotes;
-  final int downvotes;
+  final List<Vote> upvotes;
+  final List<Vote> downvotes;
 
   final String description;
 
