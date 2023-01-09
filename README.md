@@ -2,6 +2,8 @@
   <a href="http://aikenahac.com/" target="_blank"><img src="https://cdn.aikenahac.com/socialko-assets/logo.svg" style="border-radius: 25px" width="200" alt="Socialko Logo" /></a>
 </p>
 
+**This is now a legacy app. The active app can be found [here](https://github.com/SocialkoApp/app)**
+
 <p align="center">Mobile, web and desktop app for Socialko, an open source social media app.</p>
 
 ## Platforms
@@ -10,7 +12,7 @@ Mobile:
 - Android
 - iOS
 
-Desktop (listed in order of quality):
+Desktop:
 - Linux
 - macOS
 - Windows
